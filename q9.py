@@ -9,7 +9,7 @@ Example If rows is 5, it should print the following:
 *****.....
 
 '''
-stars = int(input("Enter number of rows: "))
+stars = int(input("Enter number: "))
 
 for i in range(1, stars + 1):
     print("*" * i)
