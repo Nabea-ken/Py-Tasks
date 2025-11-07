@@ -1,6 +1,4 @@
-# Write a program that takes input of someone's basic salary
-# and benefits, adds them to find the gross salary then uses
-# the gross salary to find the NHIF. To find the Kenya NHIF Rate using
+# TAX CALC
 
 basic_salary = float(input("Enter basic salary: "))
 benefits = float(input("Enter benefits: "))
@@ -45,51 +43,54 @@ def get_nhif(gross):
         nhif = 1700
     return nhif
 
-
-
-gross_salary = get_gross_salary(basic_salary,benefits)
-nhif = get_nhif(gross_salary)
-
-print("Gross salary is Ksh. ",gross_salary)
-print("NHIF is Ksh. ",nhif)
-
 def get_nssf(gross):
-    nssf = 0.06 * min(gross, 18000)
+    if gross < 18000:
+        nssf = gross * 0.06
+    else:
+        nssf = 1080
     return nssf
-
-nssf = get_nssf(gross_salary)
-print("NSSF Deductions:",nssf)
 
 def get_nhdf(gross):
     nhdf = gross * 0.015
     return nhdf
 
-nhdf = get_nhdf(gross_salary)
-print("NHDF Deductions:",nhdf)
-
 def get_taxable_income(gross):
     taxable_income = gross - (nssf + nhdf + nhif)
     return taxable_income
 
-taxable_income = get_taxable_income(gross_salary)
-print(f"Taxable income is: {taxable_income}")
-
 def get_PAYE(taxable_income):
-    if taxable_income <= 24000:
-     payee = taxable_income * 0.1
-    elif taxable_income <= 32333:
+    if taxable_income >= 0 and taxable_income <= 24000:
+     payee = 0
+    elif taxable_income > 24000 and taxable_income <= 32333:
      payee = 2400 + (taxable_income - 24000) * 0.25
+    elif taxable_income > 32333 and taxable_income <= 500000:
+     payee = 2400 + (8333 * 0.25) + (taxable_income - 32333) * 0.3
+    elif taxable_income > 500000 and taxable_income <= 800000:
+     payee = 2400 + (8333 * 0.25) + (467667 * 0.3) + (taxable_income - 500000) * 0.325
+    
     else:
-     payee = 2400 + 2083.25 + (taxable_income - 32333) * 0.3
+     payee = 2400 + (8333 * 0.25) + (467667 * 0.3) + (300000 * 0.325) + (taxable_income - 800000) * 0.35
     return payee
-
-payee = get_PAYE(taxable_income)
-print(f"PAYEE (Tax): {payee}")
 
 def get_net_salary(gross):
     net_salary = gross - (nhif + nhdf + nssf + payee)
     return net_salary
 
+gross_salary = get_gross_salary(basic_salary,benefits)
+nhif = get_nhif(gross_salary)
+nssf = get_nssf(gross_salary)
+nhdf = get_nhdf(gross_salary)
+taxable_income = get_taxable_income(gross_salary)
+payee = get_PAYE(taxable_income)
 net_salary = get_net_salary(gross_salary)
+
+print("My tax rates KE")
+print("---------------------------------------")
+print("Gross salary is Ksh. ",gross_salary)
+print("NHIF is Ksh. ",nhif)
+print("NSSF Deductions:",nssf)
+print("NHDF Deductions:",nhdf)
+print(f"Taxable income is: {taxable_income}")
+print(f"PAYEE (Tax): {payee}")
 print("Your net salary is:",net_salary)
 
