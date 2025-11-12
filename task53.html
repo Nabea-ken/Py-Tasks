@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAVASCRIPT</title>
+</head>
+<body>
+  <h2> TASK 53 </h2>
+
+  <script>
+    //Clean up the variable and convert to lower case
+    let f_name = "  JOHn  .";
+    let cleanedName = f_name.trim().replace(".", "").toLowerCase();
+    console.log("Clean name:", cleanedName); // Output: john
+
+    //Slice the strings to display required parts
+    let sentence_one = "The Dog Breed is German Shepherd";
+    let slicedOne = sentence_one.slice(8, 23); // from index 8 to 23
+    console.log("Sliced (sentence_one):", slicedOne); // Output: Breed is German
+
+    let sentence_two = "Defeats for the Clinton forces, this was her moment of triumph";
+    let start = sentence_two.indexOf("Clinton");
+    let end = sentence_two.indexOf("forces") + "forces".length;
+    let slicedTwo = sentence_two.slice(start, end);
+    console.log("Sliced (sentence_two):", slicedTwo); // Output: Clinton forces
+
+    //Split by semicolon and display length
+    let text = "The lazy dog; ran so fast; it hit the wall.";
+    let parts = text.split(";");
+    console.log("Split parts:", parts);
+    console.log("Number of parts:", parts.length); // Output: 3
+
+  </script>
+</body>
+</html>
