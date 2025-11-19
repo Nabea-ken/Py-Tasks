@@ -59,10 +59,51 @@ if (val === 5 || val === "5") {
 
 
 // 5
+let str2 = prompt("Enter a value: ")
+//"" - empty string
+//" " - whitespace
+if ((str2.length == 0 ) || ((str2.trim).length == 0)){
+    console.log("Empty")
+}else if(typeof(Number(str2)) == Number){
+    console.log("Number")
+}else{
+    console.log("Text")
+}
+
+let str3 = "123";
+
+if (str3.trim() === "") {
+    console.log("Empty");
+} else if (!isNaN(str3)) {
+    console.log("Number");
+} else {
+    console.log("Text");
+}
 
 
 // 6
+let num1 = 12.5;
 
+// if (typeof(num) != "number"){
+    // console.log("Not a number")
+// }
+if (isNaN(num1)) {                         //Checks if the input is not a number.
+    console.log("Not a number");
+} else if (Number.isInteger(num1)) {       //Checks if the number is a whole number (no decimals).
+    console.log("Integer"); 
+} else {
+    console.log("Float");
+}
+
+let num2 = prompt("Enter num2");
+
+if(typeof(Number(num2)) != "number"){
+    console.log("Not a number")
+}else if (num2.includes(".")){
+    console.log("float")
+}else{
+    console.log("integer")
+}
 
 // 7
 let month = prompt("Enter a month: ");
@@ -132,4 +173,14 @@ if (digit % 3 === 0) {
     console.log("Last digit is divisible by 3");
 } else {
     console.log("Not divisible by 3");
+}
+
+let value = prompt("Enter a value: ")
+
+if(typeof(Number(value)) != "number"){
+    console.log("Not a number!, input numbers only")
+}else if((value.slice(-1))%3 == 0){
+    console.log("Last digit divisible by 3")
+}else{
+    console.log("Last digit not divisible by 3")
 }
