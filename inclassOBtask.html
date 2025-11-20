@@ -15,63 +15,68 @@
         <p>// Given object
             const userProfile = {
             id: 101,
+
             name: {
             first: "Brian",
             last: "Letting"
             },
+            
             contact: {
             email: "jeff@example.com",
             phones: ["+254700000001", "+254700000002"]
             },
+            
             address: {
-            current: {
-            city: "Nairobi",
-            street: "Westlands Ave",
-            postalCode: "00100"
+                current: {
+                    city: "Nairobi",
+                    street: "Westlands Ave",
+                    postalCode: "00100"
+                },
+                 previous: [
+                {
+                    city: "Eldoret",
+                    street: "Main Street",
+                    postalCode: "30100"
+                },
+                {
+                    city: "Kisumu",
+                    street: "Lake View Road",
+                    postalCode: "40100"
+                }
+                ]
             },
-            previous: [
-            {
-            city: "Eldoret",
-            street: "Main Street",
-            postalCode: "30100"
-            },
-            {
-            city: "Kisumu",
-            street: "Lake View Road",
-            postalCode: "40100"
-            }
-            ]
-            },
+
             preferences: {
-            theme: "dark",
-            language: "en",
-            notifications: {
-            email: true,
-            sms: false,
-            push: ["promotions", "updates"]
-            }
+                    theme: "dark",
+                    language: "en",
+                notifications: {
+                email: true,
+                sms: false,
+                push: ["promotions", "updates"]
+                }
             },
+
             projects: [
-            {
-            id: 1,
-            name: "POS System",
-            technologies: ["React", "FastAPI", "PostgreSQL"],
-            tasks: [
-            { title: "Set up DB", done: true },
-            { title: "Design UI", done: false }
-            ]
-            },
-            {
-            id: 2,
-            name: "Portfolio Website",
-            technologies: ["HTML", "CSS", "JavaScript"],
-            tasks: [
-            { title: "Create About Page", done: true },
-            { title: "Deploy to Netlify", done: false }
-            ]
-            }
-            ]
-            };
+                {
+                    id: 1,
+                    name: "POS System",
+                    technologies: ["React", "FastAPI", "PostgreSQL"],
+                tasks: [
+                    { title: "Set up DB", done: true },
+                    { title: "Design UI", done: false }
+                ]
+                },
+                {
+                    id: 2,
+                    name: "Portfolio Website",
+                    technologies: ["HTML", "CSS", "JavaScript"],
+                tasks: [
+                    { title: "Create About Page", done: true },
+                    { title: "Deploy to Netlify", done: false }
+                ]
+                }
+                ]
+        };
 
 
             // a) "Deploy to Netlify"
