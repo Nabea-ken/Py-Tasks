@@ -77,3 +77,6 @@ console.log("c.)", userProfile.address.previous[1].street);
 console.log("d.)", userProfile.projects[0].technologies[2]);
 
 
+
+
+
